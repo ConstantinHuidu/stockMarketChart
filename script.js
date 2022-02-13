@@ -10,8 +10,8 @@ timeSelection.addEventListener('change', fetchAndDraw);
 
 //fetch stock price and generate chart
 async function fetchAndDraw() {
-    let stockSymbol = document.getElementById('stocks').value;
-    let timeframe = document.getElementById('time').value;
+    stockSymbol = document.getElementById('stocks').value;
+    timeframe = document.getElementById('time').value;
     document.getElementById('default').setAttribute("disabled", "disabled");
     const api_url = `https://twelve-data1.p.rapidapi.com/time_series?order=ASC&symbol=${stockSymbol}&interval=${timeframe}&outputsize=30&format=json`;
     const response = await fetch(api_url, {
@@ -23,6 +23,7 @@ async function fetchAndDraw() {
     });
     if (response.status != 200) {
         main.textContent = "You have exceeded the rate limit per minute for your plan, BASIC, by the API provider. Upgrade your plan or try again shortly."
+        main.style.color = 'red';
         return;
     }
     const stocks = await response.json();
