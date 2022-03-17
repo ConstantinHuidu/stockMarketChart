@@ -13,22 +13,25 @@
     <title>Stock market Chart</title>
   </head>
   <body>
-    <label for="stocks">Select a company:</label>
-    <select name="stocks" id="stocks" class="stock-items">
-      <option id="default" value="default" selected="selected">Select from dropdown</option>
-      <option value="GOOG">Google</option>
-      <option value="AAPL">Apple</option>
-      <option value="FB">Facebook</option>
-      <option value="AMZN">Amazon</option>
-    </select>
-    <br> <br>
-    <label for="timeframe">Select a timeframe:</label>
-    <select name="time" id="time" class="time">
-      <option id="default" value="1day" selected="selected">Daily</option>
-      <option value="1week">Weekly</option>
-      <option value="1month">Montly</option>
-    </select>
-    <hr>
+    <div class="form-floating">
+      <select class="form-select stock-items" name="stocks" id="stocks">
+        <option id="default" value="default" selected="selected">Select from dropdown</option>
+        <option value="GOOG">Google</option>
+        <option value="AAPL">Apple</option>
+        <option value="FB">Facebook</option>
+        <option value="AMZN">Amazon</option>
+      </select>
+      <label for="stocks">Select a company:</label>
+    </div>
+
+    <div class="form-floating">
+      <select  name="time" id="time" class="form-select time">
+        <option id="default" value="1day" selected="selected">Daily</option>
+        <option value="1week">Weekly</option>
+        <option value="1month">Montly</option>
+      </select>
+      <label for="time">Select a timeframe:</label>
+    </div>
 
     <div id ="main"></div>
     <canvas id="myChart" width="900" height="350"></canvas>
